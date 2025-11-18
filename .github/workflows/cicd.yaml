@@ -19,27 +19,9 @@ jobs:
             ${{ vars.SSH_KEY }} 
             EOF
             chmod 600 ~/.ssh/id_rsa
-            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ secrets.SERVER_IP }} "cd /var/www/html/ && rm -rf ./* ||  git clone -b dev https://smartobi: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@github.com/CDC-US/webapp.git /var/www/html
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ secrets.SERVER_IP }} "cd /var/www/html/ && rm -rf ./* ||  git clone -b dev https://smartobi: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@github.com/CDC-US/webapp.git /var/www/html"
         
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        # run: |
-        #   chmod 600 ~/.ssh/id_rsa
-        #   scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./* ubuntu@18.205.20.103:/var/www/html/
-
-        #   chmod 600 ~/.ssh/id_rsa
-        #   sudo scp -i ~/.ssh/id_rsa -r ./* ubuntu@18.205.20.103:/var/www/html/
