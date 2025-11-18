@@ -14,9 +14,12 @@ jobs:
       - name: Deploy to webserver
         run: |
             echo "Deploying to webserver..."
-            cat ${{ vars.SSH_KEY }} > ~/.ssh/id_rsa
+            mkdir -p ~/.ssh
+            cat << EOF > ~/.ssh/id_rsa
+            ${{ vars.SSH_KEY }} 
+            EOF
             chmod 600 ~/.ssh/id_rsa
-            scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./* ubuntu@${{ secrets.SERVER_IP }}:/var/www/html/
+            # scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./* ubuntu@${{ secrets.SERVER_IP }}:/var/www/html/
 
 
 
