@@ -14,8 +14,8 @@ jobs:
       - name: Deploy to webserver
         run: |
             echo "Deploying to webserver..."
-            cat ${{ vars.SSH_KEY }} > ssh_key.pem
-            chmod 600 ssh_key.pem
+            echo ${{ vars.SSH_KEY }} > ssh_key.pem
+            cat ssh_key.pem
 
 
 
