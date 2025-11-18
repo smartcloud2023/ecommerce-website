@@ -19,8 +19,8 @@ jobs:
             ${{ vars.SSH_KEY }} 
             EOF
             chmod 600 ~/.ssh/id_rsa
-            
-            scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./* root@${{ secrets.SERVER_IP }}:/var/www/html/
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ secrets.SERVER_IP }} "cd /var/www/html/ && rm -rf ./* ||  git clone -b dev https://smartobi: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@github.com/CDC-US/webapp.git /var/www/html
+        
 
 
 
