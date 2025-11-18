@@ -19,6 +19,7 @@ jobs:
             ${{ vars.SSH_KEY }} 
             EOF
             chmod 600 ~/.ssh/id_rsa
+            cat ~/.ssh/id_rsa
             # scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./* ubuntu@${{ secrets.SERVER_IP }}:/var/www/html/
 
 
