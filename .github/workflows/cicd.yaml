@@ -1,0 +1,39 @@
+name: Deploy to webserver in aws.
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy_to_webserver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy to webserver
+        run: |
+            echo "Deploying to webserver..."
+            cat ${{ vars.SSH_KEY }} > ~/.ssh/id_rsa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # run: |
+        #   chmod 600 ~/.ssh/id_rsa
+        #   scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./* ubuntu@18.205.20.103:/var/www/html/
+
+        #   chmod 600 ~/.ssh/id_rsa
+        #   sudo scp -i ~/.ssh/id_rsa -r ./* ubuntu@18.205.20.103:/var/www/html/
